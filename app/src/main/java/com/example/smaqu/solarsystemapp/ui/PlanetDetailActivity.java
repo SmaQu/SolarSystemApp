@@ -7,10 +7,16 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.smaqu.solarsystemapp.R;
 
 public class PlanetDetailActivity extends AppCompatActivity {
+
+    private static final String BUNDLE_EXTRAS = "BUNDLE_EXTRAS";
+    private static final String EXTRA_PLANET_DETAIL = "PLANET_DETAIL";
+    private static final String EXTRA_PLANET_IMAGE = "PLANET_IMAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,10 @@ public class PlanetDetailActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Bundle extras = getIntent().getBundleExtra(BUNDLE_EXTRAS);
+        ((ImageView)findViewById(R.id.planet_detail_imageView)).setImageResource(extras.getInt(EXTRA_PLANET_IMAGE));
+        ((TextView)findViewById(R.id.planet_detail_textView)).setText(extras.getString(EXTRA_PLANET_DETAIL));
     }
 
 }

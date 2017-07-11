@@ -20,7 +20,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginLeft="64dp"
-        android:paddingRight="52dp"
         android:singleLine="true"
         android:text="@string/planet_name"
         android:textColor="@android:color/black"
