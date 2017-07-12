@@ -17,6 +17,7 @@ public class PlanetDetailActivity extends AppCompatActivity {
     private static final String BUNDLE_EXTRAS = "BUNDLE_EXTRAS";
     private static final String EXTRA_PLANET_DETAIL = "PLANET_DETAIL";
     private static final String EXTRA_PLANET_IMAGE = "PLANET_IMAGE";
+    private static final String EXTRA_PLANET_WIKI = "WEB_WIKI";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,20 +26,25 @@ public class PlanetDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        final Bundle extras = getIntent().getBundleExtra(BUNDLE_EXTRAS);
+
+        ((ImageView)findViewById(R.id.planet_detail_imageView)).setImageResource(extras.getInt(EXTRA_PLANET_IMAGE));
+        ((TextView)findViewById(R.id.planet_detail_textView)).setText(extras.getString(EXTRA_PLANET_DETAIL));
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intet;
-                intet = new Intent(PlanetDetailActivity.this,WebActivity.class);
-                startActivity(intet);
+                Intent intent;
+                intent = new Intent(PlanetDetailActivity.this,WebActivity.class);
+                intent.putExtra(BUNDLE_EXTRAS,extras.getString(EXTRA_PLANET_WIKI).toString());
+                startActivity(intent);
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Bundle extras = getIntent().getBundleExtra(BUNDLE_EXTRAS);
-        ((ImageView)findViewById(R.id.planet_detail_imageView)).setImageResource(extras.getInt(EXTRA_PLANET_IMAGE));
-        ((TextView)findViewById(R.id.planet_detail_textView)).setText(extras.getString(EXTRA_PLANET_DETAIL));
+
     }
 
 }

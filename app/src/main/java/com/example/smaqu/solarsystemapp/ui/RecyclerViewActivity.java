@@ -19,6 +19,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
     private static final String BUNDLE_EXTRAS = "BUNDLE_EXTRAS";
     private static final String EXTRA_PLANET_DETAIL = "PLANET_DETAIL";
     private static final String EXTRA_PLANET_IMAGE = "PLANET_IMAGE";
+    private static final String EXTRA_PLANET_WIKI = "WEB_WIKI";
 
     private RecyclerView recView;
     private RecyclerViewAdapter adapter;
@@ -46,6 +47,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
         Bundle extras = new Bundle();
         extras.putString(EXTRA_PLANET_DETAIL,item.getDetailText());
         extras.putInt(EXTRA_PLANET_IMAGE,item.getBigDetailImage());
+        extras.putString(EXTRA_PLANET_WIKI,item.getPlanetWiki());
 
         intent.putExtra(BUNDLE_EXTRAS, extras);
         startActivity(intent);

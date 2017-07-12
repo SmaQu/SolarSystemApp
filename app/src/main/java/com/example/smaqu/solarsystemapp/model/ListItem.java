@@ -10,6 +10,15 @@ public class ListItem {
     private int planetImageIco;
     private String detailText;
     private int bigDetailImage;
+    private String planetWiki;
+
+    public String getPlanetWiki() {
+        return planetWiki;
+    }
+
+    public void setPlanetWiki(String planetWiki) {
+        this.planetWiki = planetWiki;
+    }
 
     public String getPlanetName() {
         return planetName;
