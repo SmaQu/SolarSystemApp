@@ -17,7 +17,6 @@ public class PlanetDetailActivity extends AppCompatActivity {
     private static final String BUNDLE_EXTRAS = "BUNDLE_EXTRAS";
     private static final String EXTRA_PLANET_DETAIL = "PLANET_DETAIL";
     private static final String EXTRA_PLANET_IMAGE = "PLANET_IMAGE";
-    private static final String EXTRA_PLANET_WIKI = "WEB_WIKI";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class PlanetDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent;
                 intent = new Intent(PlanetDetailActivity.this,WebActivity.class);
-                intent.putExtra(BUNDLE_EXTRAS,extras.getString(EXTRA_PLANET_WIKI).toString());
+                intent.putExtra(BUNDLE_EXTRAS,extras);
                 startActivity(intent);
             }
         });

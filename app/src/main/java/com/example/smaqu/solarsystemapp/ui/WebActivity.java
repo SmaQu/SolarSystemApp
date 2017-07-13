@@ -16,12 +16,11 @@ public class WebActivity extends AppCompatActivity {
     private static final String BUNDLE_EXTRAS = "BUNDLE_EXTRAS";
     private static final String EXTRA_PLANET_WIKI = "WEB_WIKI";
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
+
         final Bundle extras = getIntent().getBundleExtra(BUNDLE_EXTRAS);
 
         webView= new WebView(this);
@@ -34,6 +33,7 @@ public class WebActivity extends AppCompatActivity {
                 Toast.makeText(activity, description,Toast.LENGTH_LONG).show();
             }
         });
+        //TODO :/
         webView.loadUrl(extras.getString(EXTRA_PLANET_WIKI).toString());
         setContentView(webView);
     }
