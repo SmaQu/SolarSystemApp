@@ -9,14 +9,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.smaqu.solarsystemapp.R;
 
-public class PlanetDetailActivity extends AppCompatActivity {
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class PlanetDetailActivity extends AppCompatActivity  {
 
     private static final String BUNDLE_EXTRAS = "BUNDLE_EXTRAS";
     private static final String EXTRA_PLANET_DETAIL = "PLANET_DETAIL";
     private static final String EXTRA_PLANET_IMAGE = "PLANET_IMAGE";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
