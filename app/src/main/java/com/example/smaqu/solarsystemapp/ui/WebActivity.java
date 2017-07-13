@@ -3,6 +3,7 @@ package com.example.smaqu.solarsystemapp.ui;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class WebActivity extends AppCompatActivity {
 
         webView= new WebView(this);
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.requestFocus(View.FOCUS_DOWN);
         final Activity activity = this;
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -33,8 +35,7 @@ public class WebActivity extends AppCompatActivity {
                 Toast.makeText(activity, description,Toast.LENGTH_LONG).show();
             }
         });
-        //TODO :/
-        webView.loadUrl(extras.getString(EXTRA_PLANET_WIKI).toString());
+        webView.loadUrl(extras.getString(EXTRA_PLANET_WIKI));
         setContentView(webView);
     }
 }

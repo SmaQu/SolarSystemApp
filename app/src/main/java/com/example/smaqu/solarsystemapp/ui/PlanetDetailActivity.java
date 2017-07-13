@@ -37,7 +37,7 @@ public class PlanetDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent;
                 intent = new Intent(PlanetDetailActivity.this,WebActivity.class);
-                intent.putExtra(BUNDLE_EXTRAS,extras);
+                intent.putExtra(BUNDLE_EXTRAS, extras);
                 startActivity(intent);
             }
         });
