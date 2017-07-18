@@ -20,6 +20,11 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
     private static final String EXTRA_PLANET_DETAIL = "PLANET_DETAIL";
     private static final String EXTRA_PLANET_IMAGE = "PLANET_IMAGE";
     private static final String EXTRA_PLANET_WIKI = "WEB_WIKI";
+    private static final String EXTRA_PLANET_NAME= "PLANET_NAME";
+    private static final String EXTRA_PLANET_MASS = "PLANET_MASS";
+    private static final String EXTRA_PLANET_DISTANCE = "PLANET_DISTANCE";
+    private static final String EXTRA_PLANET_PERIOD = "PLANET_PERIOD";
+    private static final String EXTRA_PLANET_SEMIMAJORAXIS = "PLANET_AXIS";
 
     private RecyclerView recView;
     private RecyclerViewAdapter adapter;
@@ -48,6 +53,11 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
         extras.putString(EXTRA_PLANET_DETAIL,item.getDetailText());
         extras.putInt(EXTRA_PLANET_IMAGE,item.getBigDetailImage());
         extras.putString(EXTRA_PLANET_WIKI,item.getPlanetWiki());
+        extras.putLong(EXTRA_PLANET_SEMIMAJORAXIS,item.getSemiMajorAxis());
+        extras.putDouble(EXTRA_PLANET_MASS,item.getMass());
+        extras.putDouble(EXTRA_PLANET_PERIOD,item.getOrbitalPeriod());
+        extras.putLong(EXTRA_PLANET_DISTANCE,item.getAvrDistanceToSun());
+        extras.putString(EXTRA_PLANET_NAME,item.getPlanetName());
 
         intent.putExtra(BUNDLE_EXTRAS, extras);
         startActivity(intent);

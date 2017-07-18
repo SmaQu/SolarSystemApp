@@ -16,19 +16,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:id="@+id/planet_detail_textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="16dp"
-            android:layout_below="@+id/planet_detail_imageView"
+            android:layout_below="@+id/planet_detail_planet_avrDistanceToSun_textView"
             android:layout_centerHorizontal="true"
-            android:text="@string/detail_aobut_planet" />
+            android:text="@string/detail_about_planet"/>
+
+        <TextView
+            android:id="@+id/planet_detail_planet_name_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="8dp"
+            android:layout_below="@id/planet_detail_imageView"
+            android:text="@string/planet_name"/>
+        <TextView
+            android:id="@+id/planet_detail_planet_semiMajorAxis_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/planet_detail_planet_name_textView"
+            android:text="@string/planet_semiMajorAxis"
+            />
+        <TextView
+            android:id="@+id/planet_detail_planet_mass_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/planet_detail_planet_semiMajorAxis_textView"
+            android:text="@string/planet_mass"
+            />
+        <TextView
+            android:id="@+id/planet_detail_planet_orbitalPeriod_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/planet_detail_planet_mass_textView"
+            android:text="@string/planet_orbital_period"
+            />
+        <TextView
+            android:id="@+id/planet_detail_planet_avrDistanceToSun_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/planet_detail_planet_orbitalPeriod_textView"
+            android:text="@string/planet_avr_distance_to_sun"
+            />
+
     </RelativeLayout>
 </ScrollView>
 
