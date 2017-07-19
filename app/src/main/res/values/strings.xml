@@ -7,4 +7,5 @@
     <string name="planet_mass">Mass</string>
     <string name="planet_orbital_period">Orbital Period</string>
     <string name="planet_avr_distance_to_sun">Avr. distance to sun</string>
+    <string name="action_settings">Sort</string>
 </resources>
