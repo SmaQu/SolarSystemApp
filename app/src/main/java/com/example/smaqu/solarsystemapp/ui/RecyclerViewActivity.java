@@ -125,17 +125,18 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
     public View createRadioButtons(){
         View mView = getLayoutInflater().inflate(R.layout.dialog_sort_recyclerview,null);
         radioGroup = (RadioGroup) mView.findViewById(R.id.dialog_sort_radio_group);
-        String[] sortByArray = getResources().getStringArray(R.array.sort_by_array);
+        String[] arrayStringForRadioGrou = getResources().getStringArray(R.array.sort_by_array);
 
-        //Create the buttons
-        for (int i=0;i<sortByArray.length;i++){
-            String sortyBy = sortByArray[i];
+//Create the buttons
+        for (int i=0;i<arrayStringForRadioGrou.length;i++){
+            String radioGroupString = arrayStringForRadioGrou[i];
             RadioButton button = new RadioButton(this);
-            button.setText(sortyBy);
+            button.setText(radioGroupString);
+            button.setId(i+1);
             radioGroup.addView(button);
         }
         return mView;
     }
-
 }
+
 
