@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sort_by_array">
+        <item>Semi Major Axis</item>
+        <item>Mass</item>
+        <item>Orbital Period</item>
+        <item>Average Distance To Sun</item>
+    </string-array>
+</resources>

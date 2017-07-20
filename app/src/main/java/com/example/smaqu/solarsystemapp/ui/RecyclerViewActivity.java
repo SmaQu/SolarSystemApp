@@ -1,6 +1,7 @@
 package com.example.smaqu.solarsystemapp.ui;
 
 import android.content.Intent;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.smaqu.solarsystemapp.R;
 import com.example.smaqu.solarsystemapp.adapter.RecyclerViewAdapter;
@@ -33,6 +38,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
     private RecyclerView recView;
     private RecyclerViewAdapter adapter;
     private ArrayList listData;
+    private RadioGroup radioGroup;
+    private AlertDialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,17 +91,51 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            AlertDialog.Builder mBulider = new AlertDialog.Builder(RecyclerViewActivity.this);
-            View mView = getLayoutInflater().inflate(R.layout.dialog_sort_recyclerview,null);
-
-            mBulider.setView(mView);
-            AlertDialog dialog = mBulider.create();
-            dialog.show();
+        if (id == R.id.menu_sort_item_sort_delining) {
+            createDialogView();
             return true;
         }
-
+        if (id == R.id.menu_sort_item_sort_increasing) {
+            createDialogView();
+            radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                    RadioButton radioButto = (RadioButton) group.findViewById(checkedId);
+                    switch (radioButto.getId()){
+                        case 1:
+                            Toast.makeText(RecyclerViewActivity.this,"Heh",Toast.LENGTH_SHORT)
+                                    .show();
+                            dialog.cancel();
+                            break;
+                    }
+                }
+            });
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
+
+    public void createDialogView(){
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(RecyclerViewActivity.this);
+        mBuilder.setView(createRadioButtons());
+        dialog = mBuilder.create();
+        dialog.show();
+    }
+
+    public View createRadioButtons(){
+        View mView = getLayoutInflater().inflate(R.layout.dialog_sort_recyclerview,null);
+        radioGroup = (RadioGroup) mView.findViewById(R.id.dialog_sort_radio_group);
+        String[] sortByArray = getResources().getStringArray(R.array.sort_by_array);
+
+        //Create the buttons
+        for (int i=0;i<sortByArray.length;i++){
+            String sortyBy = sortByArray[i];
+            RadioButton button = new RadioButton(this);
+            button.setText(sortyBy);
+            radioGroup.addView(button);
+        }
+        return mView;
+    }
+
 }
 
