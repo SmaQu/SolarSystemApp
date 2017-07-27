@@ -43,6 +43,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
     private AlertDialog dialog;
     private List<ListItem> arrayListItemForSort;
     private ListItem objForSorting;
+    private int whenToEnd,i;
 
 
     @Override
@@ -96,7 +97,6 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.menu_sort_item_sort_delining) {
             createDialogView();
@@ -104,99 +104,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
                 @Override
                 public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                     RadioButton radioButto = (RadioButton) group.findViewById(checkedId);
-                    int whenToEnd,i;
-                    switch (radioButto.getId()){
-                        case 0:
-                            do
-                            {
-                                whenToEnd=0;
-                                i=(arrayListItemForSort.size()-1);
-                                do
-                                {
-                                    i--;
-                                    if (arrayListItemForSort.get((i+1)).getSemiMajorAxis() > arrayListItemForSort.get(i).getSemiMajorAxis())
-                                    {
-                                        objForSorting = arrayListItemForSort.get(i);
-                                        arrayListItemForSort.set(i,arrayListItemForSort.get((i+1)));
-                                        arrayListItemForSort.set((i+1),objForSorting);
-                                        whenToEnd=1;
-                                    }
-                                }
-                                while (i!=0);
-                            }while (whenToEnd!=0);
-
-                            listData = (ArrayList) arrayListItemForSort;
-                            adapter.setListData(listData);
-                            adapter.notifyDataSetChanged();
-                            dialog.cancel();
-                            break;
-                        case 1:
-                            do
-                            {
-                                whenToEnd=0;
-                                i=(arrayListItemForSort.size()-1);
-                                do
-                                {
-                                    i--;
-                                    if (arrayListItemForSort.get((i+1)).getMass() > arrayListItemForSort.get(i).getMass())
-                                    {
-                                        objForSorting = arrayListItemForSort.get(i);
-                                        arrayListItemForSort.set(i,arrayListItemForSort.get((i+1)));
-                                        arrayListItemForSort.set((i+1),objForSorting);
-                                        whenToEnd=1;
-                                    }
-                                }
-                                while (i!=0);
-                            }while (whenToEnd!=0);
-                            adapter.setListData(listData);
-                            adapter.notifyDataSetChanged();
-                            dialog.cancel();
-                            break;
-                        case 2:
-                            do
-                            {
-                                whenToEnd=0;
-                                i=(arrayListItemForSort.size()-1);
-                                do
-                                {
-                                    i--;
-                                    if (arrayListItemForSort.get((i+1)).getOrbitalPeriod() > arrayListItemForSort.get(i).getOrbitalPeriod())
-                                    {
-                                        objForSorting = arrayListItemForSort.get(i);
-                                        arrayListItemForSort.set(i,arrayListItemForSort.get((i+1)));
-                                        arrayListItemForSort.set((i+1),objForSorting);
-                                        whenToEnd=1;
-                                    }
-                                }
-                                while (i!=0);
-                            }while (whenToEnd!=0);
-                            adapter.setListData(listData);
-                            adapter.notifyDataSetChanged();
-                            dialog.cancel();
-                            break;
-                        case 3:
-                            do
-                            {
-                                whenToEnd=0;
-                                i=(arrayListItemForSort.size()-1);
-                                do
-                                {
-                                    i--;
-                                    if (arrayListItemForSort.get((i+1)).getAvrDistanceToSun() > arrayListItemForSort.get(i).getAvrDistanceToSun())
-                                    {
-                                        objForSorting = arrayListItemForSort.get(i);
-                                        arrayListItemForSort.set(i,arrayListItemForSort.get((i+1)));
-                                        arrayListItemForSort.set((i+1),objForSorting);
-                                        whenToEnd=1;
-                                    }
-                                }
-                                while (i!=0);
-                            }while (whenToEnd!=0);
-                            adapter.setListData(listData);
-                            adapter.notifyDataSetChanged();
-                            dialog.cancel();
-                            break;
-                    }
+                    sortingPlanetSystem(radioButto.getId(),true);
+                    //radioButto.getId() to know by what do you wanna sort,
+                    //true for sort declining, false for increasing
                 }
             });
             return true;
@@ -207,98 +117,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
                 @Override
                 public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                     RadioButton radioButto = (RadioButton) group.findViewById(checkedId);
-                    int whenToEnd,i;
-                    switch (radioButto.getId()){
-                        case 0:
-                            do
-                            {
-                                whenToEnd=0;
-                                i=(arrayListItemForSort.size()-1);
-                                do
-                                {
-                                    i--;
-                                    if (arrayListItemForSort.get((i+1)).getSemiMajorAxis() < arrayListItemForSort.get(i).getSemiMajorAxis())
-                                    {
-                                        objForSorting = arrayListItemForSort.get(i);
-                                        arrayListItemForSort.set(i,arrayListItemForSort.get((i+1)));
-                                        arrayListItemForSort.set((i+1),objForSorting);
-                                        whenToEnd=1;
-                                    }
-                                }
-                                while (i!=0);
-                            }while (whenToEnd!=0);
-
-                            adapter.setListData(listData);
-                            adapter.notifyDataSetChanged();
-                            dialog.cancel();
-                            break;
-                        case 1:
-                            do
-                            {
-                                whenToEnd=0;
-                                i=(arrayListItemForSort.size()-1);
-                                do
-                                {
-                                    i--;
-                                    if (arrayListItemForSort.get((i+1)).getMass() < arrayListItemForSort.get(i).getMass())
-                                    {
-                                        objForSorting = arrayListItemForSort.get(i);
-                                        arrayListItemForSort.set(i,arrayListItemForSort.get((i+1)));
-                                        arrayListItemForSort.set((i+1),objForSorting);
-                                        whenToEnd=1;
-                                    }
-                                }
-                                while (i!=0);
-                            }while (whenToEnd!=0);
-                            adapter.setListData(listData);
-                            adapter.notifyDataSetChanged();
-                            dialog.cancel();
-                            break;
-                        case 2:
-                            do
-                            {
-                                whenToEnd=0;
-                                i=(arrayListItemForSort.size()-1);
-                                do
-                                {
-                                    i--;
-                                    if (arrayListItemForSort.get((i+1)).getOrbitalPeriod() < arrayListItemForSort.get(i).getOrbitalPeriod())
-                                    {
-                                        objForSorting = arrayListItemForSort.get(i);
-                                        arrayListItemForSort.set(i,arrayListItemForSort.get((i+1)));
-                                        arrayListItemForSort.set((i+1),objForSorting);
-                                        whenToEnd=1;
-                                    }
-                                }
-                                while (i!=0);
-                            }while (whenToEnd!=0);
-                            adapter.setListData(listData);
-                            adapter.notifyDataSetChanged();
-                            dialog.cancel();
-                            break;
-                        case 3:
-                            do
-                            {
-                                whenToEnd=0;
-                                i=(arrayListItemForSort.size()-1);
-                                do
-                                {
-                                    i--;
-                                    if (arrayListItemForSort.get((i+1)).getAvrDistanceToSun() < arrayListItemForSort.get(i).getAvrDistanceToSun())
-                                    {
-                                        objForSorting = arrayListItemForSort.get(i);
-                                        arrayListItemForSort.set(i,arrayListItemForSort.get((i+1)));
-                                        arrayListItemForSort.set((i+1),objForSorting);
-                                        whenToEnd=1;
-                                    }
-                                }
-                                while (i!=0);
-                            }while (whenToEnd!=0);
-                            adapter.setListData(listData);
-                            adapter.notifyDataSetChanged();
-                            dialog.cancel();
-                            break;
-                    }
+                    sortingPlanetSystem(radioButto.getId(),false);
+                    //radioButto.getId() to know by what do you wanna sort,
+                    //true for sort declining, false for increasing
                 }
             });
             return true;
@@ -327,9 +148,113 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerV
         }
         return mView;
     }
-    public void listItemSortingSystem(){
 
+    public void sortingPlanetSystem(int sortBySelected,boolean incDec){
+        switch (sortBySelected){
+            case 0:
+                do
+                {
+                    whenToEnd=0;
+                    i=(arrayListItemForSort.size()-1);
+                    do
+                    {
+                        i--;
+                        if(incDec){
+                            if (arrayListItemForSort.get((i+1)).getSemiMajorAxis() > arrayListItemForSort.get(i).getSemiMajorAxis())
+                            {
+                                whenToEnd=listItemSortingSystem(i);
+                            }
+                        }else {
+                            if (arrayListItemForSort.get((i+1)).getSemiMajorAxis() < arrayListItemForSort.get(i).getSemiMajorAxis())
+                            {
+                                whenToEnd=listItemSortingSystem(i);
+                            }
+                        }
+                    }
+                    while (i!=0);
+                }while (whenToEnd!=0);
+                break;
+            case 1:
+                do
+                {
+                    whenToEnd=0;
+                    i=(arrayListItemForSort.size()-1);
+                    do
+                    {
+                        i--;
+                        if(incDec){
+                            if (arrayListItemForSort.get((i+1)).getMass() > arrayListItemForSort.get(i).getMass())
+                            {
+                                whenToEnd=listItemSortingSystem(i);
+                            }
+                        }else {
+                            if (arrayListItemForSort.get((i+1)).getMass() < arrayListItemForSort.get(i).getMass())
+                            {
+                                whenToEnd=listItemSortingSystem(i);
+                            }
+                        }
+                    }
+                    while (i!=0);
+                }while (whenToEnd!=0);
+                break;
+            case 2:
+                do
+                {
+                    whenToEnd=0;
+                    i=(arrayListItemForSort.size()-1);
+                    do
+                    {
+                        i--;
+                        if(incDec){
+                            if (arrayListItemForSort.get((i+1)).getOrbitalPeriod() > arrayListItemForSort.get(i).getOrbitalPeriod())
+                            {
+                                whenToEnd=listItemSortingSystem(i);
+                            }
+                        }else {
+                            if (arrayListItemForSort.get((i+1)).getOrbitalPeriod() < arrayListItemForSort.get(i).getOrbitalPeriod())
+                            {
+                                whenToEnd=listItemSortingSystem(i);
+                            }
+                        }
 
+                    }while (i!=0);
+                }while (whenToEnd!=0);
+                break;
+            case 3:
+                do
+                {
+                    whenToEnd=0;
+                    i=(arrayListItemForSort.size()-1);
+                    do
+                    {
+                        i--;
+                        if(incDec){
+                            if (arrayListItemForSort.get((i+1)).getAvrDistanceToSun() > arrayListItemForSort.get(i).getAvrDistanceToSun())
+                            {
+                                whenToEnd=listItemSortingSystem(i);
+                            }
+                        }else {
+                            if (arrayListItemForSort.get((i+1)).getAvrDistanceToSun() < arrayListItemForSort.get(i).getAvrDistanceToSun())
+                            {
+                                whenToEnd=listItemSortingSystem(i);
+                            }
+                        }
+
+                    }while (i!=0);
+                }while (whenToEnd!=0);
+                break;
+        }
+        listData = (ArrayList) arrayListItemForSort;
+        adapter.setListData(listData);
+        adapter.notifyDataSetChanged();
+        dialog.cancel();
+    }
+
+    public int listItemSortingSystem(int i){
+        objForSorting = arrayListItemForSort.get(i);
+        arrayListItemForSort.set(i,arrayListItemForSort.get((i+1)));
+        arrayListItemForSort.set((i+1),objForSorting);
+        return 1;
     }
 }
 
