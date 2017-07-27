@@ -46,7 +46,7 @@ public class PlanetDetailActivity extends AppCompatActivity  {
         ((TextView)findViewById(R.id.planet_detail_planet_name_textView))
                 .setText("Planeta: "+extras.getString(EXTRA_PLANET_NAME));
         ((TextView)findViewById(R.id.planet_detail_planet_semiMajorAxis_textView))
-                .setText("Srednia połowa obwodu: "+extras.getLong(EXTRA_PLANET_SEMIMAJORAXIS)+" km");
+                .setText("Średnia połowa obwodu: "+extras.getLong(EXTRA_PLANET_SEMIMAJORAXIS)+" km");
         ((TextView)findViewById(R.id.planet_detail_planet_mass_textView))
                 .setText("Masa planety: "+extras.getDouble(EXTRA_PLANET_MASS)+ " x10^23 kg");
         ((TextView)findViewById(R.id.planet_detail_planet_avrDistanceToSun_textView))

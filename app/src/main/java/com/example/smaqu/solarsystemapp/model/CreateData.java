@@ -1,5 +1,8 @@
 package com.example.smaqu.solarsystemapp.model;
 
+import android.content.res.Resources;
+import android.support.v7.app.AppCompatActivity;
+
 import com.example.smaqu.solarsystemapp.R;
 
 import java.util.ArrayList;
@@ -9,7 +12,7 @@ import java.util.List;
  * Created by SmaQu on 2017-07-11.
  */
 
-public class CreateData {
+public class CreateData extends AppCompatActivity {
     private static final String[] planets = {
             "Merkury",
             "Venus",
@@ -78,6 +81,7 @@ public class CreateData {
                     "(nazywali je Apollo), drugie widzialne tylko po zachodzie Słońca (nazywali je Hermesem)[6]. Za sprawą " +
                     "szybkiego ruchu planety, powodowanego jej krótką orbitą, Rzymianie nadali planecie nazwę na cześć posłańca " +
                     "bogów i patrona handlarzy – Merkurego. Symbol astronomiczny planety to stylizowana wersja kaduceusza Hermesa[7].",
+
 
             "Wenus – druga pod względem odległości od Słońca planeta Układu Słonecznego. Jest trzecim pod względem jasności ciałem " +
                     "niebieskim widocznym na niebie, po Słońcu i Księżycu. Jej obserwowana wielkość gwiazdowa sięga −4,6m i jest " +

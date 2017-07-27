@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.smaqu.solarsystemapp.R;
 import com.example.smaqu.solarsystemapp.model.ListItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -55,6 +56,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return listData.size();
     }
 
+    public void setListData(ArrayList<ListItem> arrayAfterSortSet){
+        this.listData.clear();
+        this.listData.addAll(arrayAfterSortSet);
+    }
     class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView planetName;
