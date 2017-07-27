@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.smaqu.solarsystemapp.ui.RecyclerViewActivity">
+
+    <item
+        android:id="@+id/menu_sort_item_sort_delining"
+        android:orderInCategory="1"
+        android:title="@string/item_sort_declining"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_sort_item_sort_increasing"
+        android:orderInCategory="2"
+        android:title="@string/item_sort_increasing"
+        app:showAsAction="never"/>
+</menu>

@@ -23,6 +23,11 @@ public class PlanetDetailActivity extends AppCompatActivity  {
     private static final String BUNDLE_EXTRAS = "BUNDLE_EXTRAS";
     private static final String EXTRA_PLANET_DETAIL = "PLANET_DETAIL";
     private static final String EXTRA_PLANET_IMAGE = "PLANET_IMAGE";
+    private static final String EXTRA_PLANET_NAME= "PLANET_NAME";
+    private static final String EXTRA_PLANET_MASS = "PLANET_MASS";
+    private static final String EXTRA_PLANET_DISTANCE = "PLANET_DISTANCE";
+    private static final String EXTRA_PLANET_PERIOD = "PLANET_PERIOD";
+    private static final String EXTRA_PLANET_SEMIMAJORAXIS = "PLANET_AXIS";
 
 
     @Override
@@ -34,8 +39,20 @@ public class PlanetDetailActivity extends AppCompatActivity  {
 
         final Bundle extras = getIntent().getBundleExtra(BUNDLE_EXTRAS);
 
-        ((ImageView)findViewById(R.id.planet_detail_imageView)).setImageResource(extras.getInt(EXTRA_PLANET_IMAGE));
-        ((TextView)findViewById(R.id.planet_detail_textView)).setText(extras.getString(EXTRA_PLANET_DETAIL));
+        ((ImageView)findViewById(R.id.planet_detail_imageView))
+                .setImageResource(extras.getInt(EXTRA_PLANET_IMAGE));
+        ((TextView)findViewById(R.id.planet_detail_textView))
+                .setText(extras.getString(EXTRA_PLANET_DETAIL));
+        ((TextView)findViewById(R.id.planet_detail_planet_name_textView))
+                .setText("Planeta: "+extras.getString(EXTRA_PLANET_NAME));
+        ((TextView)findViewById(R.id.planet_detail_planet_semiMajorAxis_textView))
+                .setText("Średnia połowa obwodu: "+extras.getLong(EXTRA_PLANET_SEMIMAJORAXIS)+" km");
+        ((TextView)findViewById(R.id.planet_detail_planet_mass_textView))
+                .setText("Masa planety: "+extras.getDouble(EXTRA_PLANET_MASS)+ " x10^23 kg");
+        ((TextView)findViewById(R.id.planet_detail_planet_avrDistanceToSun_textView))
+                .setText("Odległoś od słońca: "+extras.getLong(EXTRA_PLANET_DISTANCE)+ " km");
+        ((TextView)findViewById(R.id.planet_detail_planet_orbitalPeriod_textView))
+                .setText("Okres orbitalny: "+extras.getDouble(EXTRA_PLANET_PERIOD)+" dni");
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

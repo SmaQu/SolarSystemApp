@@ -1,5 +1,8 @@
 package com.example.smaqu.solarsystemapp.model;
 
+import android.content.res.Resources;
+import android.support.v7.app.AppCompatActivity;
+
 import com.example.smaqu.solarsystemapp.R;
 
 import java.util.ArrayList;
@@ -9,7 +12,7 @@ import java.util.List;
  * Created by SmaQu on 2017-07-11.
  */
 
-public class CreateData {
+public class CreateData extends AppCompatActivity {
     private static final String[] planets = {
             "Merkury",
             "Venus",
@@ -20,8 +23,51 @@ public class CreateData {
             "Uranus",
     };
 
+    //km
+    private static final long[] semiMajorAxis = {
+            57909050,
+            108208000,
+            149598023,
+            227939200,
+            778299000,
+            1429000000,
+            2875031720L,
+    };
+
+    //x10^23 kg
+    private static final double[] mass = {
+            3.3,
+            93.0,
+            59.7,
+            6.4171,
+            18986.0,
+            5683.6,
+            868.1,
+    };
+
+    //days
+    private static final double[] orbitalPeriod = {
+            87.9,
+            224.7,
+            365.2,
+            686.9,
+            4332.5,
+            10759.2,
+            30685.4,
+    };
+
+    //km
+    private static final long[] avrDistanceToSun = {
+            58000000,
+            108208000,
+            148346511,
+            227950000,
+            778295000,
+            1429500000,
+            2875271045L,
+    };
+
     private static final String[] planetDescription = {
-            "Planeta: Merkury\nPółoś wielka: 57 909 050km\nObwód orbity: 3,6×10^11m\nOkres orbitalny: 87,969 dni\n"+
             "Merkury – najmniejsza i najbliższa Słońcu planeta Układu Słonecznego. Jako planeta wewnętrzna znajduje się dla ziemskiego " +
                     "obserwatora zawsze bardzo blisko Słońca, dlatego jest trudna do obserwacji. Mimo to należy do planet widocznych " +
                     "gołym okiem i była znana już w starożytności. Merkurego dojrzeć można jedynie tuż przed wschodem lub tuż po zachodzie Słońca."
@@ -36,7 +82,7 @@ public class CreateData {
                     "szybkiego ruchu planety, powodowanego jej krótką orbitą, Rzymianie nadali planecie nazwę na cześć posłańca " +
                     "bogów i patrona handlarzy – Merkurego. Symbol astronomiczny planety to stylizowana wersja kaduceusza Hermesa[7].",
 
-            "Planeta: Wenus\nPółoś wielka: 1,0821×10^11m\nObwód orbity: 6,80×10^11m\nOkres orbitalny: 224,701 dni\n"+
+
             "Wenus – druga pod względem odległości od Słońca planeta Układu Słonecznego. Jest trzecim pod względem jasności ciałem " +
                     "niebieskim widocznym na niebie, po Słońcu i Księżycu. Jej obserwowana wielkość gwiazdowa sięga −4,6m i jest " +
                     "wystarczająca, aby światło odbite od Wenus powodowało powstawanie cieni. W związku z tym, że Wenus jest bliżej" +
@@ -56,7 +102,6 @@ public class CreateData {
                     "skały. Woda w jej atmosferze najprawdopodobniej dysocjowała, a ze względu na brak pola magnetycznego, wodór został" +
                     " wywiany w przestrzeń międzyplanetarną przez wiatr słoneczny[6]. Ciśnienie atmosferyczne na powierzchni planety jest ok. 92 razy większe niż na Ziemi.",
 
-            "Planeta: Ziemia\nPółoś wielka: 1,49598261×10^11m\nObwód orbity: 9,39887974×10^11m\nOkres orbitalny: 365,256363004 dni\n"+
             "Ziemia (łac. Terra, Tellus; gr.: Γαῖα, trb.: Gaja) – trzecia, licząc od Słońca, oraz piąta pod względem wielkości planeta " +
                     "Układu Słonecznego. Pod względem średnicy, masy i gęstości jest to największa planeta skalista Układu Słonecznego. " +
                     "Ziemia jest zamieszkana przez miliony gatunków, w tym przez człowieka[9]. Jest jedynym znanym miejscem we Wszechświecie, " +
@@ -72,7 +117,6 @@ public class CreateData {
                     "masowe wymieranie gatunków[15]. Pomimo że naukowcy szacują, że ok. 99% gatunków organizmów żywych (ok. 5 mld)[16] kiedykolwiek " +
                     "zamieszkujących Ziemię uważa się za wymarłe[17][18], wciąż mieszka na niej ok. 10-14 mln gatunków[9][19], z czego 1,2 mln zostało udokumentowanych[20].",
 
-            "Planeta: Mars\nPółoś wielka: 2,2792×10^11m\nObwód orbity: 1,429Tm\nOkres orbitalny: 686,980 dni\n"+
             "Mars – czwarta według oddalenia od Słońca planeta Układu Słonecznego. Nazwa planety pochodzi od imienia " +
                     "rzymskiego boga wojny – Marsa. Zawdzięcza ją swej barwie, która przy obserwacji z Ziemi wydaje się " +
                     "rdzawo-czerwona i kojarzyła się starożytnym z pożogą wojenną. Postrzegany odcień wynika stąd, że powierzchnia " +
@@ -84,7 +128,6 @@ public class CreateData {
                     " powierzchni planety i może być pozostałością ogromnego uderzenia[2][3]. W przeciwieństwie do Ziemi, Mars jest " +
                     "geologicznie i tektonicznie nieaktywny.",
 
-            "Planeta: Jowisz\nPółoś wielka: 7,7857×10^11m\nObwód orbity: 4,774Tm\nOkres orbitalny: 4332,589 dni\n"+
             "Jowisz – piąta w kolejności oddalenia od Słońca i największa planeta Układu Słonecznego[b]. Jego masa " +
                     "jest nieco mniejsza niż jedna tysięczna masy Słońca, a zarazem dwa i pół raza większa niż łączna " +
                     "masa wszystkich innych planet w Układzie Słonecznym. Wraz z Saturnem, Uranem i Neptunem tworzy grupę " +
@@ -94,7 +137,6 @@ public class CreateData {
                     "Obserwowany z Ziemi Jowisz może osiągnąć jasność do −2,95m. Jest to trzeci co do jasności naturalny obiekt " +
                     "na nocnym niebie po Księżycu i Wenus (okresowo, w momencie wielkiej opozycji, jasnością może mu dorównywać Mars).",
 
-            "Planeta: Saturn\nPółoś wielka: 1,43353×10^12m\nObwód orbity: 8,958Tm\nOkres orbitalny: 10 759,22 dni\n"+
             "Saturn – gazowy olbrzym, szósta planeta Układu Słonecznego pod względem oddalenia od Słońca, druga po Jowiszu pod " +
                     "względem masy i wielkości. Charakterystyczną jego cechą są pierścienie, składające się głównie z lodu i w " +
                     "mniejszej ilości z odłamków skalnych; inne planety-olbrzymy także mają systemy pierścieni, ale żaden z nich " +
@@ -109,7 +151,6 @@ public class CreateData {
                     "Zewnętrzna warstwa atmosfery wydaje się na ogół spokojna, choć mogą się na niej utrzymywać długotrwałe układy " +
                     "burzowe. Na Saturnie wieją wiatry o prędkości ok. 1800 km/h; są one silniejsze niż na Jowiszu.",
 
-            "Planeta: Uran\nPółoś wielka: 2,87246×10^12m\nObwód orbity: 18,029Tm\nOkres orbitalny: 30 685,4 dni\n"+
             "Uran − gazowy olbrzym, siódma w kolejności od Słońca planeta Układu Słonecznego. Jest także trzecią pod względem wielkości " +
                     "i czwartą pod względem masy planetą naszego systemu. Nazwa planety pochodzi od Uranosa, który był bogiem i uosobieniem " +
                     "nieba w mitologii greckiej (klasyczna greka: Οὐρανός), ojcem Kronosa (Saturna) i dziadkiem Zeusa (Jowisza). Choć jest " +
@@ -167,6 +208,10 @@ public class CreateData {
             item.setBigDetailImage(planetImage[i]);
             item.setDetailText(planetDescription[i]);
             item.setPlanetWiki(planetWikipedia[i]);
+            item.setSemiMajorAxis(semiMajorAxis[i]);
+            item.setMass(mass[i]);
+            item.setOrbitalPeriod(orbitalPeriod[i]);
+            item.setAvrDistanceToSun(avrDistanceToSun[i]);
             data.add(item);
         }
         return data;

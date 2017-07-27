@@ -2,5 +2,11 @@
     <string name="app_name">Solar System App</string>
     <string name="title_activity_planet_detail">Planet Detail Activity</string>
     <string name="planet_name">Planet Name</string>
-    <string name="detail_aobut_planet">Planet Description</string>
+    <string name="detail_about_planet">Planet Description</string>
+    <string name="planet_semiMajorAxis">Semi Major Axis</string>
+    <string name="planet_mass">Mass</string>
+    <string name="planet_orbital_period">Orbital Period</string>
+    <string name="planet_avr_distance_to_sun">Avr. distance to sun</string>
+    <string name="item_sort_declining">Sort Declining</string>
+    <string name="item_sort_increasing">Sort Increasing</string>
 </resources>

@@ -11,6 +11,42 @@ public class ListItem {
     private String detailText;
     private int bigDetailImage;
     private String planetWiki;
+    private long semiMajorAxis;
+    private double mass;
+    private double orbitalPeriod;
+    private long avrDistanceToSun;
+
+    public long getSemiMajorAxis() {
+        return semiMajorAxis;
+    }
+
+    public void setSemiMajorAxis(long semiMajorAxis) {
+        this.semiMajorAxis = semiMajorAxis;
+    }
+
+    public double getMass() {
+        return mass;
+    }
+
+    public void setMass(double mass) {
+        this.mass = mass;
+    }
+
+    public double getOrbitalPeriod() {
+        return orbitalPeriod;
+    }
+
+    public void setOrbitalPeriod(double orbitalPeriod) {
+        this.orbitalPeriod = orbitalPeriod;
+    }
+
+    public long getAvrDistanceToSun() {
+        return avrDistanceToSun;
+    }
+
+    public void setAvrDistanceToSun(long avrDistanceToSun) {
+        this.avrDistanceToSun = avrDistanceToSun;
+    }
 
     public String getPlanetWiki() {
         return planetWiki;
